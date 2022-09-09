@@ -1,0 +1,84 @@
+.inputcontainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 30px;
+    background: #2D2D2D;
+}
+
+/* start */
+
+.inputBox{
+    position: relative;
+    width: 250px;
+}
+
+.inputBox input{
+    width: 100%;
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    padding: 10px 0 5px;
+    
+}
+
+.inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 10px 0 5px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    pointer-events: none;
+    letter-spacing: 0.1em;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ span ,
+.inputBox input:focus ~ span{
+    color: #2196f3;
+    transform: translateY(-16px);
+    font-size: 0.65em;
+}
+.inputBox i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    overflow: hidden;
+}
+
+.inputBox i::before{
+    content: "";
+    left: -100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #FF1B69, #FF0, #2196F3, #9C27B0, #FF1B69);
+    animation: animate 2s linear infinite;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ i::before ,
+.inputBox input:focus ~ i::before{
+    left:0;
+}
+
+@keyframes animate {
+    0%{
+        background-position: 0;
+    }
+    100%{
+        background-position: 250px;
+    }
+}
+
+/* end */
